@@ -1,8 +1,8 @@
 settings:
   title: 'PickEasy Status Page'
-  url: 'https://status-page.eidam.dev' # used for Slack messages
+  url: 'https://status.pickeasy.ca' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
+  daysInHistogram: 30 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
   allmonitorsOperational: 'All Systems Operational'
@@ -15,11 +15,25 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-  - id: pickeasy-menu # unique identifier
-    name: menu.pickeasy.ca
-    description: 'Menus for PickEasy.' # default=empty
-    url: 'https://menu.pickeasy.ca/' # URL to fetch
+  - id: pickeasy # unique identifier
+    name: pickeasy.ca
+    description: 'PickEasy Website' # default=empty
+    url: 'https://pickeasy.ca/' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
-    followRedirect: true # should fetch follow redirects, default=false
+  - id: pickeasy-menu # unique identifier
+    name: menus.pickeasy.ca
+    description: 'PickEasy Menus' # default=empty
+    url: 'https://menus.pickeasy.ca/restaurants/718DBHX' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 200 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # allows the title to be a link, default=true
+  - id: pickeasy-menu # unique identifier
+    name: menus-api.pickeasy.ca
+    description: 'PickEasy Menus API' # default=empty
+    url: 'https://menus-api.pickeasy.ca/api/v2/restaurants/718DBHX' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 200 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
     linkable: false # allows the title to be a link, default=true
