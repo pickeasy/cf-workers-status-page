@@ -16,22 +16,19 @@ settings:
 
 monitors:
   - id: pickeasy # unique identifier
-    name: pickeasy.ca
-    description: 'PickEasy Website' # default=empty
+    name: PickEasy Site
     url: 'https://pickeasy.ca/' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
   - id: pickeasy-menu # unique identifier
-    name: menus.pickeasy.ca
-    description: 'PickEasy Menus' # default=empty
+    name: PickEasy Menu App
     url: 'https://menus.pickeasy.ca/restaurants/718DBHX' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
     linkable: false # allows the title to be a link, default=true
-  - id: pickeasy-menu # unique identifier
-    name: menus-api.pickeasy.ca
-    description: 'PickEasy Menus API' # default=empty
+  - id: pickeasy-menu-api # unique identifier
+    name: PickEasy Menu API
     url: 'https://menus-api.pickeasy.ca/api/v2/restaurants/718DBHX' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
